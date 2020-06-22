@@ -649,7 +649,6 @@ int board_init(void)
 	return 0;
 }
 
-#ifdef CONFIG_DM_PMIC_PFUZE100
 int power_init_board(void)
 {
 	struct pmic *p;
@@ -678,7 +677,6 @@ int power_init_board(void)
 
 	return 0;
 }
-#endif
 
 #ifdef CONFIG_MXC_SPI
 int board_spi_cs_gpio(unsigned bus, unsigned cs)
