@@ -73,23 +73,23 @@ static iomux_v3_cfg_t const uart1_pads[] = {
 };
 
 static iomux_v3_cfg_t const enet_pads[] = {
-	IOMUX_PADS(PAD_ENET_MDIO__ENET_MDIO	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_ENET_MDC__ENET_MDC	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_TXC__RGMII_TXC	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_TD0__RGMII_TD0	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_TD1__RGMII_TD1	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_TD2__RGMII_TD2	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_TD3__RGMII_TD3	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_TX_CTL__RGMII_TX_CTL	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_ENET_REF_CLK__ENET_TX_CLK	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_RXC__RGMII_RXC	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_RD0__RGMII_RD0	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_RD1__RGMII_RD1	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_RD2__RGMII_RD2	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_RD3__RGMII_RD3	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
-	IOMUX_PADS(PAD_RGMII_RX_CTL__RGMII_RX_CTL	| MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_ENET_MDIO__ENET_MDIO | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_ENET_MDC__ENET_MDC | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_TXC__RGMII_TXC | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_TD0__RGMII_TD0 | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_TD1__RGMII_TD1 | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_TD2__RGMII_TD2 | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_TD3__RGMII_TD3 | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_TX_CTL__RGMII_TX_CTL | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_ENET_REF_CLK__ENET_TX_CLK | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_RXC__RGMII_RXC | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_RD0__RGMII_RD0 | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_RD1__RGMII_RD1 | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_RD2__RGMII_RD2 | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_RD3__RGMII_RD3 | MUX_PAD_CTRL(ENET_PAD_CTRL)),
+	IOMUX_PADS(PAD_RGMII_RX_CTL__RGMII_RX_CTL | MUX_PAD_CTRL(ENET_PAD_CTRL)),
 	/* AR8031 PHY Reset */
-	IOMUX_PADS(PAD_ENET_CRS_DV__GPIO1_IO25	| MUX_PAD_CTRL(NO_PAD_CTRL)),
+	IOMUX_PADS(PAD_ENET_CRS_DV__GPIO1_IO25 | MUX_PAD_CTRL(NO_PAD_CTRL)),
 };
 
 static void setup_iomux_enet(void)
@@ -97,29 +97,29 @@ static void setup_iomux_enet(void)
 	SETUP_IOMUX_PADS(enet_pads);
 
 	/* Reset AR8031 PHY */
-	gpio_direction_output(IMX_GPIO_NR(1, 25) , 0);
+	gpio_direction_output(IMX_GPIO_NR(1, 25), 0);
 	mdelay(10);
 	gpio_set_value(IMX_GPIO_NR(1, 25), 1);
 	udelay(100);
 }
 
 static iomux_v3_cfg_t const usdhc2_pads[] = {
-	IOMUX_PADS(PAD_SD2_CLK__SD2_CLK	| MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_SD2_CMD__SD2_CMD	| MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_SD2_DAT0__SD2_DATA0	| MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_SD2_DAT1__SD2_DATA1	| MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_SD2_DAT2__SD2_DATA2	| MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_SD2_DAT3__SD2_DATA3	| MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_NANDF_D4__SD2_DATA4	| MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_NANDF_D5__SD2_DATA5	| MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_NANDF_D6__SD2_DATA6	| MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_NANDF_D7__SD2_DATA7	| MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_NANDF_D2__GPIO2_IO02	| MUX_PAD_CTRL(NO_PAD_CTRL)), /* CD */
+	IOMUX_PADS(PAD_SD2_CLK__SD2_CLK | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_SD2_CMD__SD2_CMD | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_SD2_DAT0__SD2_DATA0 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_SD2_DAT1__SD2_DATA1 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_SD2_DAT2__SD2_DATA2 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_SD2_DAT3__SD2_DATA3 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_NANDF_D4__SD2_DATA4 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_NANDF_D5__SD2_DATA5 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_NANDF_D6__SD2_DATA6 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_NANDF_D7__SD2_DATA7 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_NANDF_D2__GPIO2_IO02 | MUX_PAD_CTRL(NO_PAD_CTRL)), /* CD */
 };
 
 static iomux_v3_cfg_t const usdhc3_pads[] = {
-	IOMUX_PADS(PAD_SD3_CLK__SD3_CLK   | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_SD3_CMD__SD3_CMD   | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_SD3_CLK__SD3_CLK | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_SD3_CMD__SD3_CMD | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
 	IOMUX_PADS(PAD_SD3_DAT0__SD3_DATA0 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
 	IOMUX_PADS(PAD_SD3_DAT1__SD3_DATA1 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
 	IOMUX_PADS(PAD_SD3_DAT2__SD3_DATA2 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
@@ -128,12 +128,12 @@ static iomux_v3_cfg_t const usdhc3_pads[] = {
 	IOMUX_PADS(PAD_SD3_DAT5__SD3_DATA5 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
 	IOMUX_PADS(PAD_SD3_DAT6__SD3_DATA6 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
 	IOMUX_PADS(PAD_SD3_DAT7__SD3_DATA7 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_NANDF_D0__GPIO2_IO00    | MUX_PAD_CTRL(NO_PAD_CTRL)), /* CD */
+	IOMUX_PADS(PAD_NANDF_D0__GPIO2_IO00 | MUX_PAD_CTRL(NO_PAD_CTRL)), /* CD */
 };
 
 static iomux_v3_cfg_t const usdhc4_pads[] = {
-	IOMUX_PADS(PAD_SD4_CLK__SD4_CLK   | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
-	IOMUX_PADS(PAD_SD4_CMD__SD4_CMD   | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_SD4_CLK__SD4_CLK | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
+	IOMUX_PADS(PAD_SD4_CMD__SD4_CMD | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
 	IOMUX_PADS(PAD_SD4_DAT0__SD4_DATA0 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
 	IOMUX_PADS(PAD_SD4_DAT1__SD4_DATA1 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
 	IOMUX_PADS(PAD_SD4_DAT2__SD4_DATA2 | MUX_PAD_CTRL(USDHC_PAD_CTRL)),
@@ -193,13 +193,13 @@ static void enable_backlight(void)
 	gpio_direction_output(DISP0_PWR_EN, 1);
 }
 
-static void enable_rgb(struct display_info_t const *dev)
+static void enable_rgb(struct display_info_t const* dev)
 {
 	SETUP_IOMUX_PADS(rgb_pads);
 	enable_backlight();
 }
 
-static void enable_lvds(struct display_info_t const *dev)
+static void enable_lvds(struct display_info_t const* dev)
 {
 	enable_backlight();
 }
@@ -271,9 +271,9 @@ int board_mmc_get_env_dev(int devno)
 	return devno - 1;
 }
 
-int board_mmc_getcd(struct mmc *mmc)
+int board_mmc_getcd(struct mmc* mmc)
 {
-	struct fsl_esdhc_cfg *cfg = (struct fsl_esdhc_cfg *)mmc->priv;
+	struct fsl_esdhc_cfg* cfg = (struct fsl_esdhc_cfg*)mmc->priv;
 	int ret = 0;
 
 	switch (cfg->esdhc_base) {
@@ -291,7 +291,7 @@ int board_mmc_getcd(struct mmc *mmc)
 	return ret;
 }
 
-int board_mmc_init(bd_t *bis)
+int board_mmc_init(bd_t* bis)
 {
 #ifndef CONFIG_SPL_BUILD
 	int ret;
@@ -322,8 +322,8 @@ int board_mmc_init(bd_t *bis)
 			break;
 		default:
 			printf("Warning: you configured more USDHC controllers"
-			       "(%d) then supported by the board (%d)\n",
-			       i + 1, CONFIG_SYS_FSL_USDHC_NUM);
+				"(%d) then supported by the board (%d)\n",
+				i + 1, CONFIG_SYS_FSL_USDHC_NUM);
 			return -EINVAL;
 		}
 
@@ -334,7 +334,7 @@ int board_mmc_init(bd_t *bis)
 
 	return 0;
 #else
-	struct src *psrc = (struct src *)SRC_BASE_ADDR;
+	struct src* psrc = (struct src*)SRC_BASE_ADDR;
 	unsigned reg = readl(&psrc->sbmr1) >> 11;
 	/*
 	 * Upon reading BOOT_CFG register the following map is done:
@@ -371,7 +371,7 @@ int board_mmc_init(bd_t *bis)
 }
 #endif
 
-static int ar8031_phy_fixup(struct phy_device *phydev)
+static int ar8031_phy_fixup(struct phy_device* phydev)
 {
 	unsigned short val;
 
@@ -394,7 +394,7 @@ static int ar8031_phy_fixup(struct phy_device *phydev)
 	return 0;
 }
 
-int board_phy_config(struct phy_device *phydev)
+int board_phy_config(struct phy_device* phydev)
 {
 	ar8031_phy_fixup(phydev);
 
@@ -405,91 +405,91 @@ int board_phy_config(struct phy_device *phydev)
 }
 
 #if defined(CONFIG_VIDEO_IPUV3)
-static void disable_lvds(struct display_info_t const *dev)
+static void disable_lvds(struct display_info_t const* dev)
 {
-	struct iomuxc *iomux = (struct iomuxc *)IOMUXC_BASE_ADDR;
+	struct iomuxc* iomux = (struct iomuxc*)IOMUXC_BASE_ADDR;
 
 	int reg = readl(&iomux->gpr[2]);
 
 	reg &= ~(IOMUXC_GPR2_LVDS_CH0_MODE_MASK |
-		 IOMUXC_GPR2_LVDS_CH1_MODE_MASK);
+		IOMUXC_GPR2_LVDS_CH1_MODE_MASK);
 
 	writel(reg, &iomux->gpr[2]);
 }
 
-static void do_enable_hdmi(struct display_info_t const *dev)
+static void do_enable_hdmi(struct display_info_t const* dev)
 {
 	disable_lvds(dev);
 	imx_enable_hdmi_phy();
 }
 
-struct display_info_t const displays[] = {{
-	.bus	= -1,
-	.addr	= 0,
-	.pixfmt	= IPU_PIX_FMT_RGB666,
-	.detect	= NULL,
-	.enable	= enable_lvds,
-	.mode	= {
-		.name           = "Hannstar-XGA",
-		.refresh        = 60,
-		.xres           = 1024,
-		.yres           = 768,
-		.pixclock       = 15384,
-		.left_margin    = 160,
-		.right_margin   = 24,
-		.upper_margin   = 29,
-		.lower_margin   = 3,
-		.hsync_len      = 136,
-		.vsync_len      = 6,
-		.sync           = FB_SYNC_EXT,
-		.vmode          = FB_VMODE_NONINTERLACED
+struct display_info_t const displays[] = { {
+	.bus = -1,
+	.addr = 0,
+	.pixfmt = IPU_PIX_FMT_RGB666,
+	.detect = NULL,
+	.enable = enable_lvds,
+	.mode = {
+		.name = "Hannstar-XGA",
+		.refresh = 60,
+		.xres = 1024,
+		.yres = 768,
+		.pixclock = 15384,
+		.left_margin = 160,
+		.right_margin = 24,
+		.upper_margin = 29,
+		.lower_margin = 3,
+		.hsync_len = 136,
+		.vsync_len = 6,
+		.sync = FB_SYNC_EXT,
+		.vmode = FB_VMODE_NONINTERLACED
 } }, {
-	.bus	= -1,
-	.addr	= 0,
-	.pixfmt	= IPU_PIX_FMT_RGB24,
-	.detect	= detect_hdmi,
-	.enable	= do_enable_hdmi,
-	.mode	= {
-		.name           = "HDMI",
-		.refresh        = 60,
-		.xres           = 1024,
-		.yres           = 768,
-		.pixclock       = 15384,
-		.left_margin    = 160,
-		.right_margin   = 24,
-		.upper_margin   = 29,
-		.lower_margin   = 3,
-		.hsync_len      = 136,
-		.vsync_len      = 6,
-		.sync           = FB_SYNC_EXT,
-		.vmode          = FB_VMODE_NONINTERLACED
+	.bus = -1,
+	.addr = 0,
+	.pixfmt = IPU_PIX_FMT_RGB24,
+	.detect = detect_hdmi,
+	.enable = do_enable_hdmi,
+	.mode = {
+		.name = "HDMI",
+		.refresh = 60,
+		.xres = 1024,
+		.yres = 768,
+		.pixclock = 15384,
+		.left_margin = 160,
+		.right_margin = 24,
+		.upper_margin = 29,
+		.lower_margin = 3,
+		.hsync_len = 136,
+		.vsync_len = 6,
+		.sync = FB_SYNC_EXT,
+		.vmode = FB_VMODE_NONINTERLACED
 } }, {
-	.bus	= 0,
-	.addr	= 0,
-	.pixfmt	= IPU_PIX_FMT_RGB24,
-	.detect	= NULL,
-	.enable	= enable_rgb,
-	.mode	= {
-		.name           = "SEIKO-WVGA",
-		.refresh        = 60,
-		.xres           = 800,
-		.yres           = 480,
-		.pixclock       = 29850,
-		.left_margin    = 89,
-		.right_margin   = 164,
-		.upper_margin   = 23,
-		.lower_margin   = 10,
-		.hsync_len      = 10,
-		.vsync_len      = 10,
-		.sync           = 0,
-		.vmode          = FB_VMODE_NONINTERLACED
+	.bus = 0,
+	.addr = 0,
+	.pixfmt = IPU_PIX_FMT_RGB24,
+	.detect = NULL,
+	.enable = enable_rgb,
+	.mode = {
+		.name = "SEIKO-WVGA",
+		.refresh = 60,
+		.xres = 800,
+		.yres = 480,
+		.pixclock = 29850,
+		.left_margin = 89,
+		.right_margin = 164,
+		.upper_margin = 23,
+		.lower_margin = 10,
+		.hsync_len = 10,
+		.vsync_len = 10,
+		.sync = 0,
+		.vmode = FB_VMODE_NONINTERLACED
 } } };
 size_t display_count = ARRAY_SIZE(displays);
 
 static void setup_display(void)
 {
-	struct mxc_ccm_reg *mxc_ccm = (struct mxc_ccm_reg *)CCM_BASE_ADDR;
-	struct iomuxc *iomux = (struct iomuxc *)IOMUXC_BASE_ADDR;
+	struct mxc_ccm_reg* mxc_ccm = (struct mxc_ccm_reg*)CCM_BASE_ADDR;
+	struct iomuxc* iomux = (struct iomuxc*)IOMUXC_BASE_ADDR;
 	int reg;
 
 	/* Setup HSYNC, VSYNC, DISP_CLK for debugging purposes */
@@ -500,15 +500,15 @@ static void setup_display(void)
 
 	/* Turn on LDB0, LDB1, IPU,IPU DI0 clocks */
 	reg = readl(&mxc_ccm->CCGR3);
-	reg |=  MXC_CCM_CCGR3_LDB_DI0_MASK | MXC_CCM_CCGR3_LDB_DI1_MASK;
+	reg |= MXC_CCM_CCGR3_LDB_DI0_MASK | MXC_CCM_CCGR3_LDB_DI1_MASK;
 	writel(reg, &mxc_ccm->CCGR3);
 
 	/* set LDB0, LDB1 clk select to 011/011 */
 	reg = readl(&mxc_ccm->cs2cdr);
 	reg &= ~(MXC_CCM_CS2CDR_LDB_DI0_CLK_SEL_MASK
-		 | MXC_CCM_CS2CDR_LDB_DI1_CLK_SEL_MASK);
+		| MXC_CCM_CS2CDR_LDB_DI1_CLK_SEL_MASK);
 	reg |= (3 << MXC_CCM_CS2CDR_LDB_DI0_CLK_SEL_OFFSET)
-	      | (3 << MXC_CCM_CS2CDR_LDB_DI1_CLK_SEL_OFFSET);
+		| (3 << MXC_CCM_CS2CDR_LDB_DI1_CLK_SEL_OFFSET);
 	writel(reg, &mxc_ccm->cs2cdr);
 
 	reg = readl(&mxc_ccm->cscmr2);
@@ -523,21 +523,21 @@ static void setup_display(void)
 	writel(reg, &mxc_ccm->chsccdr);
 
 	reg = IOMUXC_GPR2_BGREF_RRMODE_EXTERNAL_RES
-	     | IOMUXC_GPR2_DI1_VS_POLARITY_ACTIVE_LOW
-	     | IOMUXC_GPR2_DI0_VS_POLARITY_ACTIVE_LOW
-	     | IOMUXC_GPR2_BIT_MAPPING_CH1_SPWG
-	     | IOMUXC_GPR2_DATA_WIDTH_CH1_18BIT
-	     | IOMUXC_GPR2_BIT_MAPPING_CH0_SPWG
-	     | IOMUXC_GPR2_DATA_WIDTH_CH0_18BIT
-	     | IOMUXC_GPR2_LVDS_CH0_MODE_DISABLED
-	     | IOMUXC_GPR2_LVDS_CH1_MODE_ENABLED_DI0;
+		| IOMUXC_GPR2_DI1_VS_POLARITY_ACTIVE_LOW
+		| IOMUXC_GPR2_DI0_VS_POLARITY_ACTIVE_LOW
+		| IOMUXC_GPR2_BIT_MAPPING_CH1_SPWG
+		| IOMUXC_GPR2_DATA_WIDTH_CH1_18BIT
+		| IOMUXC_GPR2_BIT_MAPPING_CH0_SPWG
+		| IOMUXC_GPR2_DATA_WIDTH_CH0_18BIT
+		| IOMUXC_GPR2_LVDS_CH0_MODE_DISABLED
+		| IOMUXC_GPR2_LVDS_CH1_MODE_ENABLED_DI0;
 	writel(reg, &iomux->gpr[2]);
 
 	reg = readl(&iomux->gpr[3]);
 	reg = (reg & ~(IOMUXC_GPR3_LVDS1_MUX_CTL_MASK
-			| IOMUXC_GPR3_HDMI_MUX_CTL_MASK))
-	    | (IOMUXC_GPR3_MUX_SRC_IPU1_DI0
-	       << IOMUXC_GPR3_LVDS1_MUX_CTL_OFFSET);
+		| IOMUXC_GPR3_HDMI_MUX_CTL_MASK))
+		| (IOMUXC_GPR3_MUX_SRC_IPU1_DI0
+			<< IOMUXC_GPR3_LVDS1_MUX_CTL_OFFSET);
 	writel(reg, &iomux->gpr[3]);
 }
 #endif /* CONFIG_VIDEO_IPUV3 */
@@ -551,7 +551,7 @@ int overwrite_console(void)
 	return 1;
 }
 
-int board_eth_init(bd_t *bis)
+int board_eth_init(bd_t* bis)
 {
 	setup_iomux_enet();
 	setup_pcie();
@@ -587,13 +587,13 @@ static void setup_usb(void)
 
 int board_ehci_hcd_init(int port)
 {
-	u32 *usbnc_usb_ctrl;
+	u32* usbnc_usb_ctrl;
 
 	if (port > 1)
 		return -EINVAL;
 
-	usbnc_usb_ctrl = (u32 *)(USB_BASE_ADDR + USB_OTHERREGS_OFFSET +
-				 port * 4);
+	usbnc_usb_ctrl = (u32*)(USB_BASE_ADDR + USB_OTHERREGS_OFFSET +
+		port * 4);
 
 	setbits_le32(usbnc_usb_ctrl, UCTRL_PWR_POL);
 
@@ -651,7 +651,7 @@ int board_init(void)
 
 int power_init_board(void)
 {
-	struct pmic *p;
+	struct pmic* p;
 	unsigned int reg;
 	int ret;
 
@@ -718,7 +718,7 @@ int board_late_init(void)
 
 int checkboard(void)
 {
-	puts("Board: TFTDEVICE\n");
+	puts("Board: MX6-TftDevice\n");
 	return 0;
 }
 
@@ -739,7 +739,7 @@ int spl_start_uboot(void)
 
 static void ccgr_init(void)
 {
-	struct mxc_ccm_reg *ccm = (struct mxc_ccm_reg *)CCM_BASE_ADDR;
+	struct mxc_ccm_reg* ccm = (struct mxc_ccm_reg*)CCM_BASE_ADDR;
 
 	writel(0x00C03F3F, &ccm->CCGR0);
 	writel(0x0030FC03, &ccm->CCGR1);
@@ -935,94 +935,94 @@ static int mx6qp_dcd_table[] = {
 static int mx6dl_dcd_table[] = {
 	0x020e0774, 0x000C0000,
 	0x020e0754, 0x00000000,
-	0x020e04ac, 0x00000028,
-	0x020e04b0, 0x00000028,
-	0x020e0464, 0x00000028,
-	0x020e0490, 0x00000028,
-	0x020e074c, 0x00000028,
-	0x020e0494, 0x00000028,
+	0x020e04ac, 0x00000030,
+	0x020e04b0, 0x00000030,
+	0x020e0464, 0x00000030,
+	0x020e0490, 0x00000030,
+	0x020e074c, 0x00000030,
+	0x020e0494, 0x00000030,
 	0x020e04a0, 0x00000000,
-	0x020e04b4, 0x00000028,
-	0x020e04b8, 0x00000028,
-	0x020e076c, 0x00000028,
+	0x020e04b4, 0x00000030,
+	0x020e04b8, 0x00000030,
+	0x020e076c, 0x00000030,
 	0x020e0750, 0x00020000,
-	0x020e04bc, 0x00000028,
-	0x020e04c0, 0x00000028,
-	//0x020e04c4, 0x00000028,
-	//0x020e04c8, 0x00000028,
-	//0x020e04cc, 0x00000028,
-	//0x020e04d0, 0x00000028,
-	//0x020e04d4, 0x00000028,
-	//0x020e04d8, 0x00000028,
+	0x020e04bc, 0x00000030,
+	0x020e04c0, 0x00000030,
+	0x020e04c4, 0x00000030,
+	0x020e04c8, 0x00000030,
+	0x020e04cc, 0x00000030,
+	0x020e04d0, 0x00000030,
+	0x020e04d4, 0x00000030,
+	0x020e04d8, 0x00000030,
 	0x020e0760, 0x00020000,
-	0x020e0764, 0x00000028,
-	0x020e0770, 0x00000028,
-	//0x020e0778, 0x00000028,
-	//0x020e077c, 0x00000028,
-	//0x020e0780, 0x00000028,
-	//0x020e0784, 0x00000028,
-	//0x020e078c, 0x00000028,
-	//0x020e0748, 0x00000028,
-	0x020e0470, 0x00000028,
-	0x020e0474, 0x00000028,
-	//0x020e0478, 0x00000028,
-	//0x020e047c, 0x00000028,
-	//0x020e0480, 0x00000028,
-	//0x020e0484, 0x00000028,
-	//0x020e0488, 0x00000028,
-	//0x020e048c, 0x00000028,
-	0x021b0800, 0xA1390003,
-	0x021b080c, 0x00310037,
+	0x020e0764, 0x00000030,
+	0x020e0770, 0x00000030,
+	0x020e0778, 0x00000030,
+	0x020e077c, 0x00000030,
+	0x020e0780, 0x00000030,
+	0x020e0784, 0x00000030,
+	0x020e078c, 0x00000030,
+	0x020e0748, 0x00000030,
+	0x020e0470, 0x00000030,
+	0x020e0474, 0x00000030,
+	0x020e0478, 0x00000030,
+	0x020e047c, 0x00000030,
+	0x020e0480, 0x00000030,
+	0x020e0484, 0x00000030,
+	0x020e0488, 0x00000030,
+	0x020e048c, 0x00000030,
+	0x021b0800, 0xa1390003,
+	0x021b080c, 0x001F001F,
 	0x021b0810, 0x001F001F,
-	//0x021b480c, 0x001F001F,
-	//0x021b4810, 0x001F001F,
-	0x021b083c, 0x0220021C,
-	0x021b0840, 0x00000000,
-	//0x021b483c, 0x4201020C,
-	//0x021b4840, 0x01660172,
-	0x021b0848, 0x40404848,
-	//0x021b4848, 0x4A4F5049,
-	0x021b0850, 0x40402E30,
-	//0x021b4850, 0x3238372B,
+	0x021b480c, 0x001F001F,
+	0x021b4810, 0x001F001F,
+	0x021b083c, 0x4220021F,
+	0x021b0840, 0x0207017E,
+	0x021b483c, 0x4201020C,
+	0x021b4840, 0x01660172,
+	0x021b0848, 0x4A4D4E4D,
+	0x021b4848, 0x4A4F5049,
+	0x021b0850, 0x3F3C3D31,
+	0x021b4850, 0x3238372B,
 	0x021b081c, 0x33333333,
 	0x021b0820, 0x33333333,
-	//0x021b0824, 0x33333333,
-	//0x021b0828, 0x33333333,
-	//0x021b481c, 0x33333333,
-	//0x021b4820, 0x33333333,
-	//0x021b4824, 0x33333333,
-	//0x021b4828, 0x33333333,
+	0x021b0824, 0x33333333,
+	0x021b0828, 0x33333333,
+	0x021b481c, 0x33333333,
+	0x021b4820, 0x33333333,
+	0x021b4824, 0x33333333,
+	0x021b4828, 0x33333333,
 	0x021b08b8, 0x00000800,
-	//0x021b48b8, 0x00000800,
+	0x021b48b8, 0x00000800,
 	0x021b0004, 0x0002002D,
-	0x021b0008, 0x1B333040,
-	0x021b000c, 0x676B52F3,
-	0x021b0010, 0xB66D8B63,
+	0x021b0008, 0x00333030,
+	0x021b000c, 0x3F435313,
+	0x021b0010, 0xB66E8B63,
 	0x021b0014, 0x01FF00DB,
-	0x021b0018, 0x00011740,
+	0x021b0018, 0x00001740,
 	0x021b001c, 0x00008000,
-	0x021b002c, 0x000026D2,
-	0x021b0030, 0x006B1023,
+	0x021b002c, 0x000026d2,
+	0x021b0030, 0x00431023,
 	0x021b0040, 0x00000027,
-	0x021b0000, 0x84180000,
-	0x021b001c, 0x02008032,
+	0x021b0000, 0x831A0000,
+	0x021b001c, 0x04008032,
 	0x021b001c, 0x00008033,
 	0x021b001c, 0x00048031,
-	0x021b001c, 0x15208030,
+	0x021b001c, 0x05208030,
 	0x021b001c, 0x04008040,
-	0x021b0020, 0x00007800,
-	0x021b0818, 0x00022227,
-	//0x021b4818, 0x00011117,
+	0x021b0020, 0x00005800,
+	0x021b0818, 0x00011117,
+	0x021b4818, 0x00011117,
 	0x021b0004, 0x0002556D,
 	0x021b0404, 0x00011006,
 	0x021b001c, 0x00000000,
 };
 
-static void ddr_init(int *table, int size)
+static void ddr_init(int* table, int size)
 {
 	int i;
 
-	for (i = 0; i < size / 2 ; i++)
+	for (i = 0; i < size / 2; i++)
 		writel(table[2 * i + 1], table[2 * i]);
 }
 
