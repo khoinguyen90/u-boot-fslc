@@ -1,0 +1,12 @@
+if TARGET_MX6SABRESD
+
+config SYS_BOARD
+	default "tftdevice"
+
+config SYS_VENDOR
+	default "praxis"
+
+config SYS_CONFIG_NAME
+	default "tftdevice"
+
+endif
