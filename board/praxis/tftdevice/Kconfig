@@ -1,4 +1,4 @@
-if TARGET_MX6SABRESD
+if TARGET_TFTDEVICE
 
 config SYS_BOARD
 	default "tftdevice"
