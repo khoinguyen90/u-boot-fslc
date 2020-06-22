@@ -244,7 +244,7 @@ config TARGET_MX6SABRESD
 
 config TARGET_TFTDEVICE
 	bool "tftdevice"
-	select MX6DL
+	select MX6QDL
 	select BOARD_LATE_INIT
 	select SUPPORT_SPL
 	select DM
