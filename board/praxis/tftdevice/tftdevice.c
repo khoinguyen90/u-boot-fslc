@@ -703,7 +703,7 @@ int board_late_init(void)
 #endif
 
 #ifdef CONFIG_ENV_VARS_UBOOT_RUNTIME_CONFIG
-	env_set("board_name", "SABRESD");
+	env_set("board_name", "TFTDEVICE");
 
 	if (is_mx6dqp())
 		env_set("board_rev", "MX6QP");
@@ -718,7 +718,7 @@ int board_late_init(void)
 
 int checkboard(void)
 {
-	puts("Board: MX6-SabreSD\n");
+	puts("Board: TFTDEVICE\n");
 	return 0;
 }
 

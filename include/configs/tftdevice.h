@@ -6,8 +6,8 @@
  * SPDX-License-Identifier:	GPL-2.0+
  */
 
-#ifndef __MX6SABRESD_CONFIG_H
-#define __MX6SABRESD_CONFIG_H
+#ifndef __TFTDEVICE_CONFIG_H
+#define __TFTDEVICE_CONFIG_H
 
 #ifdef CONFIG_SPL
 #include "imx6_spl.h"
