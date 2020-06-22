@@ -1,6 +1,6 @@
-MX6SABRESD BOARD
-M:	Fabio Estevam <fabio.estevam@nxp.com>
+PRAXIS TFTDEVICE
+M:	Khoi Nguyen <k.van.nguyen@praxis-automation.com>
 S:	Maintained
-F:	board/freescale/mx6sabresd/
-F:	include/configs/mx6sabresd.h
-F:	configs/mx6sabresd_defconfig
+F:	board/praxis/tftdevice/
+F:	include/configs/tftdevice.h
+F:	configs/tftdevice_defconfig
