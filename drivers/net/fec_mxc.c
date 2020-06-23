@@ -1165,6 +1165,7 @@ int fecmxc_initialize_multi(bd_t *bd, int dev_id, int phy_id, uint32_t addr)
 #ifdef CONFIG_FEC_MXC_PHYADDR
 int fecmxc_initialize(bd_t *bd)
 {
+	printf("fecmxc_initialize_multi\n");
 	return fecmxc_initialize_multi(bd, -1, CONFIG_FEC_MXC_PHYADDR,
 			IMX_FEC_BASE);
 }

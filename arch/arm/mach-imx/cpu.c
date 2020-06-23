@@ -242,6 +242,7 @@ int cpu_eth_init(bd_t *bis)
 	int rc = -ENODEV;
 
 #if defined(CONFIG_FEC_MXC)
+	printf("fecmxc_initialize\n");
 	rc = fecmxc_initialize(bis);
 #endif
 
