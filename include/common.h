@@ -48,7 +48,7 @@ typedef volatile unsigned char	vu_char;
 #ifdef DEBUG
 #define _DEBUG	1
 #else
-#define _DEBUG	0
+#define _DEBUG	1
 #endif
 
 #ifdef CONFIG_SPL_BUILD
