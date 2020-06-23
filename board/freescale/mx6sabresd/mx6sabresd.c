@@ -652,6 +652,7 @@ int board_init(void)
 #ifdef CONFIG_DM_PMIC_PFUZE100
 int power_init_board(void)
 {
+	return 0;
 	struct pmic *p;
 	unsigned int reg;
 	int ret;
