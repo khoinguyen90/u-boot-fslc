@@ -219,14 +219,14 @@ static struct i2c_pads_info mx6q_i2c_pad_info1 = {
 
 static struct i2c_pads_info mx6dl_i2c_pad_info1 = {
 	.scl = {
-		.i2c_mode = MX6DL_PAD_EIM_EB2__I2C2_SCL | I2C_PAD,
-		.gpio_mode = MX6DL_PAD_EIM_EB2__GPIO2_IO30 | I2C_PAD,
-		.gp = IMX_GPIO_NR(2, 30)
+		.i2c_mode = MX6DL_PAD_EIM_D17__I2C3_SCL | I2C_PAD,
+		.gpio_mode = MX6DL_PAD_EIM_D17__GPIO3_IO17 | I2C_PAD,
+		.gp = IMX_GPIO_NR(3, 17)
 	},
 	.sda = {
-		.i2c_mode = MX6DL_PAD_EIM_D16__I2C2_SDA | I2C_PAD,
-		.gpio_mode = MX6DL_PAD_EIM_D16__GPIO3_IO16 | I2C_PAD,
-		.gp = IMX_GPIO_NR(3, 16)
+		.i2c_mode = MX6DL_PAD_EIM_D18__I2C3_SDA | I2C_PAD,
+		.gpio_mode = MX6DL_PAD_EIM_D18__GPIO3_IO18 | I2C_PAD,
+		.gp = IMX_GPIO_NR(3, 18)
 	}
 };
 
